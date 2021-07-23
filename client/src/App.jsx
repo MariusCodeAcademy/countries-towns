@@ -52,7 +52,7 @@ class App extends Component {
     console.log('you want to delete', id);
     try {
       const deleteResult = await axios.delete('http://localhost:4000/api/place/delete/' + id);
-      console.log('deleteResult', deleteResult.data);
+      // console.log('deleteResult', deleteResult.data);
       // atnaujinti sarasa kad neliktu ka istrynem
       this.getAllPlaces();
     } catch (error) {
