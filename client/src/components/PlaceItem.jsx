@@ -9,15 +9,18 @@ class PlaceItem extends Component {
     };
   }
 
-  handleEdit = () => {
+  handleEdit = (updatedPlaceData) => {
+    if (this.state.isEdiOn) this.props.onUpdate(this.props.place._id, updatedPlaceData);
+
     this.setState({ isEdiOn: !this.state.isEdiOn });
   };
+
   render() {
     const { place: p } = this.props;
     return (
       <div className={'card m-2 ' + (p.placeType === 'country' ? 'text-white bg-secondary ' : '')}>
         {this.state.isEdiOn ? (
-          <MyForm place={p} />
+          <MyForm place={p} onEdit={this.handleEdit} />
         ) : (
           <React.Fragment>
             <div className="card-header">Place type: {p.placeType} </div>

@@ -2,11 +2,26 @@ import React, { Component } from 'react';
 
 class MyForm extends Component {
   state = {
-    name: 'South pole',
-    continent: 'Antarctica',
-    population: '300000',
-    placeType: 'country',
+    name: '',
+    continent: '',
+    population: '',
+    placeType: '',
   };
+
+  componentDidMount() {
+    // kai komponentas yra edit vietoje
+    this.props.place && this.propsToState();
+  }
+
+  propsToState() {
+    const { name, continent, population, placeType } = this.props.place;
+    this.setState({
+      name,
+      continent,
+      population,
+      placeType,
+    });
+  }
 
   clearInputs = () => {
     this.setState({
@@ -18,16 +33,27 @@ class MyForm extends Component {
   };
 
   handleSubmitLocal = async (e) => {
-    const { name, continent, population, placeType } = this.state;
     e.preventDefault();
     console.log('stop right there');
+    const { name, continent, population, placeType } = this.state;
     const dataToCreateNewPlace = {
       name,
       continent,
       population,
       placeType,
     };
+
+    // jei mes esam Place item vidue tai norim vygdyti PlaceItem metoda
+    if (this.props.place) {
+      console.log('Editinam one Sukuriam');
+      this.props.onEdit(dataToCreateNewPlace);
+      return;
+    }
+
     // console.log('dataToCreateNewPlace', dataToCreateNewPlace);
+    // create new Place
+    console.log('Sukuriam');
+
     const createSuccess = await this.props.onCreateNewPlace(dataToCreateNewPlace);
     if (createSuccess) this.clearInputs();
   };
@@ -81,7 +107,7 @@ class MyForm extends Component {
             <option value="town">Town</option>
             <option value="country">Country</option>
           </select>
-          <button className="btn btn-primary my-4">Create</button>
+          <button className="btn btn-primary my-4">{this.props.place ? 'Save' : 'Create'}</button>
         </form>
       </div>
     );
