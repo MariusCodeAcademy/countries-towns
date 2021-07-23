@@ -5,7 +5,7 @@ class MyForm extends Component {
     name: 'USA',
     continent: '',
     population: null,
-    placeType: '',
+    placeType: 'town',
   };
 
   handleSubmitLocal = (e) => {
@@ -14,7 +14,7 @@ class MyForm extends Component {
   };
 
   handleInput = (e) => {
-    this.setState({ name: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -34,17 +34,31 @@ class MyForm extends Component {
             />
           </div>
           <div className="form-group">
-            <input type="text" className="form-control" name="continent" placeholder="Continent" />
+            <input
+              value={s.continent}
+              onChange={this.handleInput}
+              type="text"
+              className="form-control"
+              name="continent"
+              placeholder="Continent"
+            />
           </div>
           <div className="form-group">
             <input
+              value={s.population}
+              onChange={this.handleInput}
               type="number"
               className="form-control"
               name="population"
               placeholder="Population"
             />
           </div>
-          <select name="placeType" className="custom-select">
+          <select
+            value={s.placeType}
+            onChange={this.handleInput}
+            name="placeType"
+            className="custom-select"
+          >
             <option value="town">Town</option>
             <option value="country">Country</option>
           </select>
