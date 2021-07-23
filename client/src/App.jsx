@@ -24,6 +24,8 @@ class App extends Component {
         'http://localhost:4000/api/place/new',
         dataToCreateNewPlace
       );
+      // atnaujinti sarasa places po ivedimo
+      this.getAllPlaces();
       console.log('createResult', createResult.data);
       return createResult.data ? true : false;
     } catch (error) {
