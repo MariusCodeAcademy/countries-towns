@@ -4,13 +4,22 @@ class MyForm extends Component {
   state = {
     name: 'USA',
     continent: '',
-    population: null,
+    population: '',
     placeType: 'town',
   };
 
   handleSubmitLocal = (e) => {
+    const { name, continent, population, placeType } = this.state;
     e.preventDefault();
     console.log('stop right there');
+    const dataToCreateNewPlace = {
+      name,
+      continent,
+      population,
+      placeType,
+    };
+    // console.log('dataToCreateNewPlace', dataToCreateNewPlace);
+    this.props.onCreateNewPlace(dataToCreateNewPlace);
   };
 
   handleInput = (e) => {
