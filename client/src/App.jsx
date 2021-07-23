@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import MyForm from './components/MyForm';
 import PlaceList from './components/PlaceList';
-import { getPlaces, updatePlaceSend, createPlaceSend, deletePlaceSend } from './utils/request';
+import {
+  getPlaces,
+  updatePlaceSend,
+  createPlaceSend,
+  deletePlaceSend,
+  getFilteredPlaces,
+} from './utils/request';
 
 class App extends Component {
   constructor(props) {
@@ -44,12 +50,18 @@ class App extends Component {
     success && this.getAllPlaces();
   };
 
+  filterPlacesOrTowns = async (filterValue) => {
+    if (!filterValue) return this.getAllPlaces();
+    const result = await getFilteredPlaces(filterValue);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <MyForm onCreateNewPlace={this.createNewPlace} />
           <PlaceList
+            onFilterPlace={this.filterPlacesOrTowns}
             onUpdate={this.updatePlace}
             onDelete={this.deletePlace}
             places={this.state.places}

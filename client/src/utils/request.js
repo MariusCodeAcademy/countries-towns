@@ -49,3 +49,16 @@ export const deletePlaceSend = async (id) => {
     console.error(error);
   }
 };
+
+export const getFilteredPlaces = async (filterValue) => {
+  try {
+    const filteredPlaces = await axios.get('http://localhost:4000/api/place/' + filterValue);
+
+    if (Array.isArray(filteredPlaces.data) && filteredPlaces.data.length) {
+      // nustatom state i tai ka gavom
+      return filteredPlaces.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
