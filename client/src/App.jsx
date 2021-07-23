@@ -64,6 +64,15 @@ class App extends Component {
 
   updatePlace = async (id, updatedDetails) => {
     console.log('about to update place', id, updatedDetails);
+    try {
+      const updateResult = await axios.put(
+        'http://localhost:4000/api/place/update/' + id,
+        updatedDetails
+      );
+      if (updateResult.data) this.getAllPlaces();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {
