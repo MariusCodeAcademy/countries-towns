@@ -48,12 +48,16 @@ class App extends Component {
     }
   };
 
+  deletePlace = async (id) => {
+    console.log('you want to delete', id);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <MyForm onCreateNewPlace={this.createNewPlace} />
-          <PlaceList places={this.state.places} />
+          <PlaceList onDelete={this.deletePlace} places={this.state.places} />
         </div>
       </div>
     );
