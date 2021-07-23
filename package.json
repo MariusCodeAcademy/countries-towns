@@ -1,0 +1,26 @@
+{
+  "name": "countries-and-towns",
+  "version": "1.0.0",
+  "description": "Sukurti saliu ir miestu informacijos aplikacija",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariusCodeAcademy/countries-towns.git"
+  },
+  "keywords": [],
+  "author": "Marius Kuzminskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariusCodeAcademy/countries-towns/issues"
+  },
+  "homepage": "https://github.com/MariusCodeAcademy/countries-towns#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "morgan": "^1.10.0"
+  }
+}
