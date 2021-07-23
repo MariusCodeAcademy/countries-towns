@@ -39,8 +39,8 @@ class MyForm extends Component {
   render() {
     const { state: s } = this;
     return (
-      <div className="w-50">
-        <h2>Create new place</h2>
+      <div className={this.props.place ? 'card-body' : 'w-50'}>
+        {this.props.place ? null : <h2>Create new place</h2>}
         <form onSubmit={this.handleSubmitLocal} autoComplete="off">
           <div className="form-group">
             <input
