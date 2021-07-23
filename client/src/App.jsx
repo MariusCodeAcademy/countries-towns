@@ -50,6 +50,14 @@ class App extends Component {
 
   deletePlace = async (id) => {
     console.log('you want to delete', id);
+    try {
+      const deleteResult = await axios.delete('http://localhost:4000/api/place/delete/' + id);
+      console.log('deleteResult', deleteResult.data);
+      // atnaujinti sarasa kad neliktu ka istrynem
+      this.getAllPlaces();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {
