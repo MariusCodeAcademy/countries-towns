@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class MyForm extends Component {
   state = {
-    name: 'USA',
-    continent: '',
-    population: '',
-    placeType: 'town',
+    name: 'South pole',
+    continent: 'Antarctica',
+    population: '300000',
+    placeType: 'country',
   };
 
   handleSubmitLocal = (e) => {
