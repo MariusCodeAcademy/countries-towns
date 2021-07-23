@@ -54,10 +54,16 @@ class App extends Component {
       const deleteResult = await axios.delete('http://localhost:4000/api/place/delete/' + id);
       // console.log('deleteResult', deleteResult.data);
       // atnaujinti sarasa kad neliktu ka istrynem
-      this.getAllPlaces();
+      if (deleteResult.data) {
+        this.getAllPlaces();
+      }
     } catch (error) {
       console.error(error);
     }
+  };
+
+  updatePlace = async (id, updatedDetails) => {
+    console.log('about to update place', id, updatedDetails);
   };
 
   render() {
@@ -65,7 +71,11 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <MyForm onCreateNewPlace={this.createNewPlace} />
-          <PlaceList onDelete={this.deletePlace} places={this.state.places} />
+          <PlaceList
+            onUpdate={this.updatePlace}
+            onDelete={this.deletePlace}
+            places={this.state.places}
+          />
         </div>
       </div>
     );
