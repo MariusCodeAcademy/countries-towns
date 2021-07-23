@@ -12,6 +12,10 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getAllPlaces();
+  }
+
   createNewPlace = async (dataToCreateNewPlace) => {
     console.log('createNewPlace in app.jsx Fired');
     console.log('dataToCreateNewPlace', dataToCreateNewPlace);
@@ -22,6 +26,21 @@ class App extends Component {
       );
       console.log('createResult', createResult.data);
       return createResult.data ? true : false;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  getAllPlaces = async () => {
+    // gaunam visas vietas is db
+    try {
+      const allPlacesFromDb = await axios.get('http://localhost:4000/api/place');
+      // jei gavom duomenis
+      console.log('inside Try');
+      if (allPlacesFromDb.data) {
+        // nustatom state i tai ka gavom
+        this.setState({ places: allPlacesFromDb.data });
+      }
     } catch (error) {
       console.error(error);
     }
