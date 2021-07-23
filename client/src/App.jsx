@@ -11,10 +11,10 @@ class App extends Component {
     console.log('dataToCreateNewPlace', dataToCreateNewPlace);
     try {
       const createResult = await axios.post(
-        'http://localhost:3000/api/place/new',
+        'http://localhost:4000/api/place/new',
         dataToCreateNewPlace
       );
-      console.log('createResult', createResult);
+      console.log('createResult', createResult.data);
     } catch (error) {
       console.error(error);
     }
