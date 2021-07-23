@@ -37,7 +37,7 @@ class App extends Component {
       const allPlacesFromDb = await axios.get('http://localhost:4000/api/place');
       // jei gavom duomenis
       console.log('inside Try');
-      if (allPlacesFromDb.data) {
+      if (Array.isArray(allPlacesFromDb.data) && allPlacesFromDb.data.length) {
         // nustatom state i tai ka gavom
         this.setState({ places: allPlacesFromDb.data });
       }
