@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import MyForm from './components/MyForm';
 import axios from 'axios';
+import PlaceList from './components/PlaceList';
 
 class App extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      places: [1, 2, 3],
+    };
+  }
 
   createNewPlace = async (dataToCreateNewPlace) => {
     console.log('createNewPlace in app.jsx Fired');
@@ -24,8 +30,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
+        <div className="container d-flex">
           <MyForm onCreateNewPlace={this.createNewPlace} />
+          <PlaceList places={this.state.places} />
         </div>
       </div>
     );
