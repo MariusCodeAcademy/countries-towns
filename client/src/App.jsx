@@ -15,6 +15,7 @@ class App extends Component {
         dataToCreateNewPlace
       );
       console.log('createResult', createResult.data);
+      return createResult.data ? true : false;
     } catch (error) {
       console.error(error);
     }
