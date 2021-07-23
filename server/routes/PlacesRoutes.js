@@ -27,6 +27,17 @@ router.get('/api/place', async (req, res) => {
   }
 });
 
+// filter  places
+router.get('/api/place/:filterVal', async (req, res) => {
+  const filterBy = req.params.filterVal;
+  try {
+    const allPlacesFromDb = await PlaceModel.find({ placeType: filterBy });
+    res.json(allPlacesFromDb);
+  } catch (error) {
+    res.status(500).json();
+  }
+});
+
 // delete a place
 router.delete('/api/place/delete/:placeId', async (req, res) => {
   const idOfItemToDelete = req.params.placeId;

@@ -52,7 +52,10 @@ class App extends Component {
 
   filterPlacesOrTowns = async (filterValue) => {
     if (!filterValue) return this.getAllPlaces();
-    const result = await getFilteredPlaces(filterValue);
+    const filteredPlaces = await getFilteredPlaces(filterValue);
+    console.log('filteredPlaces', filteredPlaces);
+    // nustatyti kad matytume tik tai ka isviltravom
+    this.setState({ places: filteredPlaces });
   };
 
   render() {
