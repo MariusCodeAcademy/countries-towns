@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container d-flex">
+        <div className="container">
           <MyForm onCreateNewPlace={this.createNewPlace} />
           <PlaceList places={this.state.places} />
         </div>
