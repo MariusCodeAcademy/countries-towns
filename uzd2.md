@@ -18,6 +18,7 @@ Sukurti Prekiu ir paslaugu uzsakymu aplikacija
 3. Kieki(paslaugos atveju dazniausiai 1)
 4. aprasyma
 5. trukme (valandomis tik paslaugos atveju (neprivalomas laukas))
+6. Paslauga arba preke (tipas (pavadinimas bet kas tik ne TYPE please))
 
 ## Kiti reikalavimai
 

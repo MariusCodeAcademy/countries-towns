@@ -2,6 +2,11 @@ const express = require('express');
 const PlaceModel = require('../models/Place');
 const router = express.Router();
 
+// router test
+// router.get('/test', (req, res) => {
+//   res.json('testing route');
+// });
+
 // create new place
 router.post('/api/place/new', async (req, res) => {
   const gotNewPlaceData = req.body;
