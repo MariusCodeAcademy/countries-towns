@@ -1,29 +1,28 @@
-# Uzduotis Prekes ir paslaugos
+# Uzduotis Isimintiniausi Ivykiai
 
-Sukurti Prekiu ir paslaugu uzsakymu aplikacija
+Sukurti isimintiniausiu ivykiu saraso aplikacija
 
 ### funkcionalumas
 
-1. Galimybe sukurti prekes arba paslaugos uzsakyma
-2. Galimybe matyti visas prekes ir paslaugas
-3. Galimybe istrinti preke AR Paslauga.
+1. Galimybe sukurti ivyki
+2. Galimybe matyti visus ivykius
+3. Galimybe istrinti ivyki.
 4. Galimybe redaguoti.
-5. Galimybe matyti tik prekias
-6. Galimybe matyti tik paslaugas
+5. Galimybe isirkiuoti pagal sukurimo data
+6. Galimybe isirkiuoti pagal ivykio data
 
-### Prekes ar paslaugos => irasas turi tureti
+### Ivykis => irasas turi tureti
 
 1. Pavadinima
-2. Kaina
-3. Kieki(paslaugos atveju dazniausiai 1)
+2. Vieta
+3. ivykio data
 4. aprasyma
-5. trukme (valandomis tik paslaugos atveju (neprivalomas laukas))
-6. Paslauga arba preke (tipas (pavadinimas bet kas tik ne TYPE please))
 
 ## Kiti reikalavimai
 
 - BackEnd'as express su mongo atlass
 - FrontEnd'as react
+- vartotojui matoma sasajos dalis lietuviskai
 - Skaidyti koda, vengti dideliu funkciju
 - Logiskas git panaudojimas. Tvarkingi commitai kurie nusako kas buvo padaryta
 - Stilius savo nuoziura bet kad atrodytu kazkiek padoriai
@@ -32,12 +31,7 @@ Sukurti Prekiu ir paslaugu uzsakymu aplikacija
 ## extra
 
 1. naudoti .env failiuka aplikos kintamiesiems
-
-### pasunkinimas kad norit stipriau
-
-1. sukurti 3 vartotojus duomenu bazeje
-2. priskirti prekias ar paslaugas kazkuriam vartotojui sukurimo ar redagavimo metu
-3. prideti kategorijas kaip atskira modeli ir galimybe susieti prekias ir paslaugas su kategorija
+2. naudoti skirtingus stiliu ivykiams pagal metu laika
 
 ## seka
 

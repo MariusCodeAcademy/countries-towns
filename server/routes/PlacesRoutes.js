@@ -4,7 +4,7 @@ const router = express.Router();
 
 // router test
 // router.get('/test', (req, res) => {
-//   res.json('testing route');
+// res.json('testing route');
 // });
 
 // create new place
