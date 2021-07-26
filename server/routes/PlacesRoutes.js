@@ -11,9 +11,10 @@ router.post('/api/place/new', async (req, res) => {
   const newPlace = new PlaceModel(gotNewPlaceData);
   try {
     const creatingNewPlaceResult = await newPlace.save();
-    res.json(creatingNewPlaceResult);
+    console.log('creatingNewPlaceResult', creatingNewPlaceResult);
+    res.json({ success: true });
   } catch (error) {
-    res.status(500).json(error);
+    res.json(error);
   }
 });
 
