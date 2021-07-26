@@ -23,12 +23,14 @@ class App extends Component {
   }
 
   createNewPlace = async (dataToCreateNewPlace) => {
-    const success = await createPlaceSend(dataToCreateNewPlace);
-    if (success) {
+    const successOrError = await createPlaceSend(dataToCreateNewPlace);
+    if (successOrError === true) {
       // atnaujinti sarasa places po ivedimo
       this.getAllPlaces();
       return true;
     }
+    console.log('Klaida sukuriant');
+    return successOrError;
   };
 
   getAllPlaces = async () => {
