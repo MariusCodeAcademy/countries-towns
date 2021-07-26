@@ -3,8 +3,9 @@ import PlaceItem from './PlaceItem';
 
 class PlaceList extends Component {
   render() {
+    if (!this.props.places.length) return <h2>No Places, please add some </h2>;
     return (
-      <div>
+      <div className="main-list">
         <h2>Place list</h2>
         <div className="btn-group mb-3" role="group" aria-label="Basic example">
           <button onClick={() => this.props.onFilterPlace()} type="button" className="btn btn-info">

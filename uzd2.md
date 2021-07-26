@@ -43,7 +43,7 @@ Sukurti Prekiu ir paslaugu uzsakymu aplikacija
 1. susikuriam back end (root index.js)
 2. prisijungiam mongoose
 3. pasidarom route ir issitestuojam kad veikia
-4. Pasileidziam front end, apsivalom
+4. Susiinstaliuojam react o client ir pasileidziam front end, apsivalom
    VEIKIA IR FRONT IR BACK
 5. is front siunciam uzklausa i back end ir ziurim ar veikia
 6. susikuriam forma front end su ivesties laukais

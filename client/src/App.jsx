@@ -67,7 +67,7 @@ class App extends Component {
             onFilterPlace={this.filterPlacesOrTowns}
             onUpdate={this.updatePlace}
             onDelete={this.deletePlace}
-            places={this.state.places}
+            places={this.state.places || []}
           />
         </div>
       </div>
