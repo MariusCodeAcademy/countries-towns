@@ -32,9 +32,11 @@ export const createPlaceSend = async (dataToCreateNewPlace) => {
       'http://localhost:4000/api/place/new',
       dataToCreateNewPlace
     );
-    return createResult.data ? true : false;
+    console.log('createResult.data', createResult.data);
+    return createResult.data.success ? true : createResult.data;
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
 
