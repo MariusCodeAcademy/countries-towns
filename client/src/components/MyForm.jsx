@@ -6,7 +6,7 @@ class MyForm extends Component {
     continent: '',
     population: '',
     placeType: 'town',
-    error: '',
+    error: {},
   };
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class MyForm extends Component {
       continent: '',
       population: '',
       placeType: 'town',
-      error: '',
+      error: {},
     });
   };
 
@@ -83,7 +83,7 @@ class MyForm extends Component {
               value={s.name}
               onChange={this.handleInput}
               type="text"
-              className="form-control"
+              className={'form-control ' + (s.error.errors?.name ? 'is-invalid' : '')}
               name="name"
               placeholder="Name of Place"
             />
@@ -93,7 +93,7 @@ class MyForm extends Component {
               value={s.continent}
               onChange={this.handleInput}
               type="text"
-              className="form-control"
+              className={'form-control ' + (s.error.errors?.continent ? 'is-invalid' : '')}
               name="continent"
               placeholder="Continent"
             />
@@ -103,7 +103,7 @@ class MyForm extends Component {
               value={s.population}
               onChange={this.handleInput}
               type="number"
-              className="form-control"
+              className={'form-control ' + (s.error.errors?.population ? 'is-invalid' : '')}
               name="population"
               placeholder="Population"
             />
