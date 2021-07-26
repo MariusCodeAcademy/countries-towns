@@ -6,7 +6,7 @@ class MyForm extends Component {
     continent: '',
     population: '',
     placeType: 'town',
-    error: {},
+    error: '',
   };
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class MyForm extends Component {
       continent: '',
       population: '',
       placeType: 'town',
-      error: {},
+      error: '',
     });
   };
 
