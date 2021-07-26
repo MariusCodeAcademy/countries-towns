@@ -6,6 +6,7 @@ class MyForm extends Component {
     continent: '',
     population: '',
     placeType: 'town',
+    error: '',
   };
 
   componentDidMount() {
@@ -29,6 +30,7 @@ class MyForm extends Component {
       continent: '',
       population: '',
       placeType: 'town',
+      error: '',
     });
   };
 
@@ -54,8 +56,10 @@ class MyForm extends Component {
     // create new Place
     console.log('Sukuriam');
 
-    const createSuccess = await this.props.onCreateNewPlace(dataToCreateNewPlace);
-    if (createSuccess) this.clearInputs();
+    const createSuccessOrError = await this.props.onCreateNewPlace(dataToCreateNewPlace);
+    if (createSuccessOrError === true) return this.clearInputs();
+    console.log('Klaida sukuriant Formoj, createSuccessOrError', createSuccessOrError);
+    this.setState({ error: createSuccessOrError });
   };
 
   handleInput = (e) => {
@@ -67,6 +71,12 @@ class MyForm extends Component {
     return (
       <div className={this.props.place ? 'card-body' : 'w-50'}>
         {this.props.place ? null : <h2>Create new place</h2>}
+        {s.error && (
+          <div className="alert alert-danger" role="alert">
+            Please check form fields <br />
+            {s.error.message}
+          </div>
+        )}
         <form onSubmit={this.handleSubmitLocal} autoComplete="off">
           <div className="form-group">
             <input
